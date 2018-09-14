@@ -12,7 +12,7 @@ setlocal foldtext=JavaFoldText()
 function! JavaFoldText()
   let nnum = nextnonblank(v:foldstart + 1)
   let nline = getline(nnum)
-  while nline =~ "\*"
+  while (nline =~ "\*" || nline =~ "\s*@")
       let nnum = nextnonblank(nnum + 1)
       let nline = getline(nnum)
   endwhile
